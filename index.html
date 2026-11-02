@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қазақстан тарихы: XX ғасыр басы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgmain: '#f8f5ee',
+                        accentred: '#7a1919',
+                        accentgold: '#d4af37',
+                        textdark: '#2c2520'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .custom-shadow { box-shadow: 0 4px 6px -1px rgba(122, 25, 25, 0.1), 0 2px 4px -1px rgba(122, 25, 25, 0.06); }
+    </style>
+</head>
+<body class="bg-bgmain text-textdark font-sans leading-relaxed">
+
+    <!-- НАВИГАЦИОННОЕ МЕНЮ (Navbar) -->
+    <nav class="bg-accentred text-bgmain sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="font-bold text-2xl text-accentgold uppercase tracking-wider">
+                Алаш Мұрасы
+            </div>
+            <ul class="flex flex-wrap space-x-4 md:space-x-8 mt-4 md:mt-0 font-medium">
+                <li><a href="index.html" class="text-accentgold border-b-2 border-accentgold pb-1 transition">Басты бет</a></li>
+                <li><a href="maps.html" class="hover:text-accentgold transition">Карталар</a></li>
+                <li><a href="figures.html" class="hover:text-accentgold transition">Тұлғалар</a></li>
+                <li><a href="survey.html" class="hover:text-accentgold transition">Сауалнама</a></li>
+                <li><a href="games.html" class="hover:text-accentgold transition">Ойындар</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ГЛАВНЫЙ ЗАГОЛОВОК -->
+    <header class="container mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-accentred mb-4">
+            🏛️ ҚАЗАҚСТАН ТАРИХЫ БОЙЫНША ЖОБАСЫ
+        </h1>
+        <p class="text-lg md:text-xl font-semibold text-textdark max-w-4xl mx-auto border-b-2 border-accentgold pb-6">
+            «Қазақстанның 20 ғасырдың басындағы саяси-экономикалық және әлеуметтік жағдайы: Алаш қозғалысы, петициялар, 1-2 Орыс Думалары, қазақ зиялылары»
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16 space-y-16">
+
+        <!-- 1-БӨЛІК: КІРІСПЕ -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-6 flex items-center">
+                <span class="text-accentgold mr-2">📌</span> Жоба туралы жалпы мәлімет (Кіріспе)
+            </h2>
+            <div class="space-y-4 text-justify">
+                <p>20 ғасырдың басы — қазақ халқының ұлттық санасы оянып, өз алдына дербес ел болу жолындағы тарихи бетбұрыс кезеңі. Патшалық Ресейдің отаршылдық саясатына қарсы шыққан қазақ зиялылары ұлт-азаттық қозғалыстың басына келіп, «Алаш» партиясы мен Алашорда үкіметін құрды.</p>
+                <p>Бұл жоба барысында біз Алаш қайраткерлерінің саяси, экономикалық және әлеуметтік көзқарастарын, петициялар мен орыс думаларындағы қазақ депутаттарының қызметін жан-жақты талдаймыз. Сондай-ақ заманауи технологияларды қолдана отырып, интерактивті сауалнама (100+ респондент), университет маңындағы көше сұхбаттары мен Жасанды интеллект (AI) көмегімен жасалған тарихи тұлға сұхбатын біріктіріп, толыққанды интерактивті сайт арқылы көрсетеміз.</p>
+            </div>
+
+            <h3 class="text-xl font-bold text-textdark mt-8 mb-4">Жобаның негізгі мақсаты мен міндеттері</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-bgmain p-6 rounded-lg border-l-4 border-accentgold">
+                    <h4 class="font-bold text-accentred mb-2">Мақсаты:</h4>
+                    <p>20 ғасырдың басындағы ұлт-азаттық қозғалыстың тарихи маңызын ашу, Алаш зиялыларының мұрасын зерттеу және оны заманауи цифрлық форматта (сайт, сауалнама, видео талдау) жүйелі түрде ұсыну.</p>
+                </div>
+                <div class="bg-bgmain p-6 rounded-lg border-l-4 border-accentgold">
+                    <h4 class="font-bold text-accentred mb-2">Міндеттері:</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Алаш қозғалысы мен қазақ зиялыларының еңбектерін жан-жақты зерделеу.</li>
+                        <li>Google Форма арқылы 100-ден астам респонденттің қатысуымен интерактивті сауалнама жүргізіп, нәтижесіне толық талдау жасау.</li>
+                        <li>Университет айналасындағы ортадан көше сұхбатын алып, халықтың тарихи сана деңгейін пайыздық мөлшермен шығару.</li>
+                        <li>AI көмегімен тарихи тұлғамен сұхбат видеосын дайындап, жобаға кіріктіру.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-БӨЛІК: ХРОНОЛОГИЯ -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-8 flex items-center">
+                <span class="text-accentgold mr-2">⏳</span> ХРОНОЛОГИЯ: МАҢЫЗДЫ ТАРИХИ ОҚИҒАЛАР
+            </h2>
+            <div class="relative border-l-2 border-accentgold ml-4 space-y-8">
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1905 жыл, 2 шілде</h4>
+                    <p class="mt-1">Қарқаралы петициясының қабылдануы. Патша үкіметіне қазақ халқының атынан жер мәселесі, дін бостандығы, қазақ тілінде іс жүргізу және сот жүйесін реформалау туралы талаптар қойылды.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1905–1907 жылдар</h4>
+                    <p class="mt-1">I және II Мемлекеттік Думалардың жұмысы. Қазақ зиялылары мен депутаттар (А. Бірімжанов, Ахмет Бірімжанов, Ш. Қосшығұлұлы және т.б.) Дума мінберінен қазақ халқының мүддесін қорғап, аграрлық саясаттың әділетсіздігін сынға алды.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1911–1913 жылдар</h4>
+                    <p class="mt-1">«Қазақ» газетінің алғашқы санының жарық көруі және ұлттық баспасөздің қалыптасуы. Орынбор қаласында шыққан бұл басылым қазақ зиялыларын топтастырудың басты орталығына айналды.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1917 жыл, 21–28 шілде</h4>
+                    <p class="mt-1">Бірінші Жалпықазақ съезі (Орынбор қаласы). Съезде қазақ партиясын құру («Алаш»), жер мәселесі, халық ағарту, дін және сот ісін жүргізу мәселелері қаралды.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1917 жыл, 5–13 желтоқсан</h4>
+                    <p class="mt-1">Екінші Жалпықазақ съезі (Орынбор қаласы). Съезд қазақ автономиясын жариялап, «Алашорда» халық кеңесін (үкіметін) сайлады. Төрағалығына Әлихан Бөкейхан сайланды.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1918–1919 жылдар</h4>
+                    <p class="mt-1">Алашорда үкіметінің Кеңес үкіметімен күрделі келіссөздер жүргізуі және азамат соғысы жылдарындағы саяси ахуал.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1919–1920 жылдар</h4>
+                    <p class="mt-1">Кеңес үкіметінің Қазақ революциялық комитетінің (Казревком) құрылуы және Алашорда қайраткерлеріне амнистия жариялануы.</p>
+                </div>
+                <div class="pl-6 relative">
+                    <div class="absolute w-4 h-4 bg-accentred rounded-full -left-[9px] top-1"></div>
+                    <h4 class="font-bold text-lg text-accentred">1920 жыл, 26 тамыз</h4>
+                    <p class="mt-1">Қазақ Автономиялы Кеңестік Социалистік Республикасын (ҚазАКСР) құру туралы декреттің қабылдануы.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4-БӨЛІК: ОҚУ (10 Тезис және 30 Факт) -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-6 flex items-center">
+                <span class="text-accentgold mr-2">📚</span> ОҚУ: ТЕЗИСТЕР ЖӘНЕ ТАРИХИ ФАКТІЛЕР
+            </h2>
+            
+            <h3 class="text-xl font-bold text-textdark mb-4 border-b border-gray-200 pb-2">📌 10 НЕГІЗГІ ТЕЗИС</h3>
+            <ul class="space-y-3 mb-10 pl-2">
+                <li class="flex"><span class="text-accentgold font-bold mr-2">1.</span> <span><b>Ұлттық сананың оянуы:</b> 20 ғасырдың басында қазақ қоғамында ұлттық сана қалыптасып, патшалық Ресейдің отаршылдық саясатына ашық қарсылық көрсетіле бастады.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">2.</span> <span><b>Қарқаралы петициясының рөлі:</b> 1905 жылғы петиция қазақ халқының саяси талаптарын (жер, дін, тіл, сот) жүйелі түрде көтерген алғашқы маңызды құжат болды.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">3.</span> <span><b>Парламентаризм тәжірибесі:</b> I және II Мемлекеттік Думаларға қазақ депутаттарының қатысуы халық мүддесін жалпы империялық деңгейде қорғауға жол ашты.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">4.</span> <span><b>Қазақ зиялыларының қалыптасуы:</b> Әлихан Бөкейхан, Ахмет Байтұрсынұлы, Міржақып Дулатұлы бастаған зиялылар қауымы ұлт-азаттық қозғалыстың идеологиялық көшбасшысына айналды.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">5.</span> <span><b>«Қазақ» газетінің маңызы:</b> 1913 жылы жарық көрген ұлттық басылым халықтың басын қосып, саяси-ағартушылық жұмыстардың орталығы болды.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">6.</span> <span><b>«Алаш» партиясының құрылуы:</b> 1917 жылы қазақ халқының өз ұлттық мүддесін қорғайтын саяси ұйымы дүниеге келді.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">7.</span> <span><b>Алашорда автономиясы:</b> 1917 жылғы желтоқсанда Екінші Жалпықазақ съезінде Алаш автономиясы жарияланып, Алашорда үкіметі жасақталды.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">8.</span> <span><b>Әлеуметтік-экономикалық өзгерістер:</b> Патша үкіметінің қоныстандыру саясаты қазақтардың жерінен айырылуына және әлеуметтік жағдайының нашарлауына әкеп соқты.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">9.</span> <span><b>Мемлекеттілік дәстүрі:</b> Алаш қозғалысы қазақ халқының ғасырлар бойы аңсаған тәуелсіздігі мен мемлекеттілігін қайта жаңғыртуға ұмтылды.</span></li>
+                <li class="flex"><span class="text-accentgold font-bold mr-2">10.</span> <span><b>Тарихи сабақтастық:</b> Алаш қайраткерлерінің еңбектері мен идеялары кейінгі ұрпақтың ұлттық санасына зор ықпал етті.</span></li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-textdark mb-4 border-b border-gray-200 pb-2">🔍 30 НАҚТЫ ТАРИХИ ФАКТ</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                <!-- 30 Facts Output -->
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">1. 1905 жылдың 2 шілдесінде Қарқаралы петициясы қабылданды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">2. Петицияда патша үкіметіне жер мәселесі бойынша талаптар қойылды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">3. Қазақтардың шұрайлы жерлерін тартып алуға қарсылықтар күшейді.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">4. I Мемлекеттік Думаға Жетісудан А. Бірімжанов депутат болып сайланды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">5. II Мемлекеттік Думаға қазақ өңірлерінен бірнеше депутат қатысты.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">6. Қазақ депутаттары Дума мінберінен аграрлық саясаттың әділетсіздігін сынға алды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">7. 1911 жылы Орынбор қаласында «Қазақ» газетін шығару бастамасы көтерілді.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">8. 1913 жылдың 2 ақпанында «Қазақ» газетінің алғашқы саны жарық көрді.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">9. Газеттің алғашқы редакторы әрі негізін қалаушылардың бірі Ахмет Байтұрсынұлы болды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">10. Міржақып Дулатұлының 1909 жылы жарық көрген «Оян, қазақ!» атты өлеңдер жинағы халықты оятуға зор үлес қосты.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">11. Әлихан Бөкейхан «Империалистическая война и казахи» атты мақалаларында халықтың ауыр жағдайын жазды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">12. 1916 жылғы ұлт-азаттық көтеріліс кезінде қазақ зиялылары салиқалы ұстанымдар ұстанды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">13. 1916 жылғы маусым жарлығы халықтың жаппай қарсылығына әкелді.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">14. 1917 жылғы Ақпан төңкерісінен кейін саяси қуғын-сүргінге ұшыраған қайраткерлер елге оралды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">15. 1917 жылы сәуір-мамыр айларында облыстық қазақ съездері өте бастады.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">16. 1917 жылғы 21–28 шілдеде Орынборда I Жалпықазақ съезі өтті.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">17. I съезде «Алаш» партиясын құру туралы шешім қабылданды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">18. Партияның бағдарламасы «Қазақ» газетінде жарияланды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">19. 1917 жылғы 5–13 желтоқсанда Орынборда II Жалпықазақ съезі шақырылды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">20. Съезде Алаш автономиясы ресми түрде жарияланды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">21. Алашорда үкіметінің (халық кеңесінің) төрағасы болып Әлихан Бөкейхан сайланды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">22. Алашорданың әскери күштерін жасақтау жұмыстары басталды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">23. Халел Досмұхамедұлы мен Жаһанша Досмұхамедұлы Батыс Алашорда бөлімін басқарды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">24. Алаш қайраткерлері халыққа білім беру, оқулықтар жазу ісімен белсенді айналысты.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">25. Ахмет Байтұрсынұлының «Тіл-құрал» әліппесі мен оқулықтары жарық көрді.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">26. Мағжан Жұмабаевтың ұлттық рухты көтеретін өлеңдері мен поэмалары шықты.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">27. Кеңес үкіметі орнағаннан кейін Алашорда үкіметімен келіссөздер жүргізілді.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">28. 1919–1920 жылдары Кеңес үкіметі тарапынан Алаш қайраткерлеріне амнистия жарияланды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">29. 1920 жылы ҚазАКСР құрылып, Алаш зиялылары мемлекеттік құрылысқа тартылды.</div>
+                <div class="bg-bgmain p-3 rounded shadow-sm border-l-2 border-accentred">30. Кеңестік кезеңде (1920 жылдардың соңы) Алаш қайраткерлері қайта қуғын-сүргінге ұшырай бастады.</div>
+            </div>
+        </section>
+
+        <!-- 8-БӨЛІК: ТЕРМИНДЕР -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-6 flex items-center">
+                <span class="text-accentgold mr-2">📖</span> ТЕРМИНДЕР ЖӘНЕ ТҮСІНДІРМЕ СӨЗДІК
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Алаш</span>
+                    <p class="mt-2 text-sm">Көне түркі сөзі, барша қазақ руларының ортақ ұраны және атауы. ХХ ғасырдың басында ұлт-азаттық қозғалыстың, саяси партияның және құрылған автономияның атауы ретінде қолданылды.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Алашорда</span>
+                    <p class="mt-2 text-sm">1917 жылы желтоқсанда Екінші Жалпықазақ съезінде құрылған Алаш автономиясының үкіметі (Халық кеңесі). Үкімет төрағасы болып Әлихан Бөкейхан сайланды.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Петиция (Арыз-тілек)</span>
+                    <p class="mt-2 text-sm">Белгілі бір қоғамдық немесе саяси мәселені шешу үшін билік басындағыларға көпшіліктің қол қоюымен жіберілетін ресми талап-арыз. Қазақ тарихындағы ең белгілісі – 1905 жылғы Қарқаралы петициясы.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Мемлекеттік Дума</span>
+                    <p class="mt-2 text-sm">Ресей империясындағы заң шығарушы өкілді орган (Парламент). I және II Мемлекеттік Думаларда қазақ зиялылары депутат болып сайланып, халықтың жер және дін мәселерін көтерді.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Автономия</span>
+                    <p class="mt-2 text-sm">Мемлекет ішіндегі белгілі бір ұлтқа немесе аймаққа берілетін өзін-өзі басқару құқығы. Алаш зиялылары Ресей құрамындағы демократиялық, федеративтік Қазақ автономиясын құруды мақсат етті.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Ұлт-азаттық қозғалыс</span>
+                    <p class="mt-2 text-sm">Халықтың шетелдік немесе отаршылдық үстемдікке қарсы, өз тәуелсіздігі мен ұлттық құқықтарын қорғау мақсатында жүргізген саяси және қарулы күресі.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Зиялы қауым (Интеллигенция)</span>
+                    <p class="mt-2 text-sm">Қоғамның саяси, рухани және мәдени дамуына үлес қосатын, білімді, көзі ашық адамдар тобы. 20 ғасырдың басындағы қазақ зиялылары ұлтты ояту ісінің көшбасшылары болды.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Жалпықазақ съезі</span>
+                    <p class="mt-2 text-sm">Қазақ даласының әр түкпірінен келген өкілдердің қатысуымен өткен бүкілхалықтық жиын. 1917 жылы Орынборда өткен I және II съездерде қазақ халқының тағдырын шешетін аса маңызды саяси шешімдер қабылданды.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Отарлау (Колонизация)</span>
+                    <p class="mt-2 text-sm">Күшті мемлекеттің әлсіз елдің жерін басып алып, оның байлығын пайдалануы және халқын өз саясатына бағындыруы. Патша үкіметінің қазақ даласына шаруаларды қоныстандыруы осы саясаттың бір көрінісі.</p>
+                </div>
+                <div class="bg-bgmain p-4 rounded-lg shadow-sm">
+                    <span class="font-bold text-accentred text-lg">Аграрлық саясат</span>
+                    <p class="mt-2 text-sm">Мемлекеттің жер қатынастарын реттеуге бағытталған шаралары. ХХ ғасыр басындағы Столыпин реформасы аясында қазақтардың шұрайлы жерлерін тартып алу саясаты жүргізілді.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10-БӨЛІК: ВИДЕОМАТЕРИАЛДАР -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-6 flex items-center">
+                <span class="text-accentgold mr-2">📺</span> ВИДЕОМАТЕРИАЛДАР
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Видео 1 -->
+                <div class="w-full aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden">
+                    <iframe class="w-full h-48 md:h-56" src="https://www.youtube.com/embed/7WTeOyIIGB8?si=NOpmip2QXa8gWebU" title="YouTube video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Видео 2 -->
+                <div class="w-full aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden">
+                    <iframe class="w-full h-48 md:h-56" src="https://www.youtube.com/embed/W3WZuHOC-WA?si=5h_l3rUFWoE8QC54" title="YouTube video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Видео 3 -->
+                <div class="w-full aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden">
+                    <iframe class="w-full h-48 md:h-56" src="https://www.youtube.com/embed/wc-bsJw38vI?si=Ph6ouTrw9jZe4eFO" title="YouTube video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-accentred text-bgmain text-center py-6">
+        <p class="text-sm opacity-80">© 2026 Қазақстан Тарихы Жобасы: Алаш Мұрасы. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+</body>
+</html>
