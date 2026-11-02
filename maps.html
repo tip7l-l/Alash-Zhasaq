@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарихи Карталар - Алаш Мұрасы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgmain: '#f8f5ee',
+                        accentred: '#7a1919',
+                        accentgold: '#d4af37',
+                        textdark: '#2c2520'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .custom-shadow { box-shadow: 0 4px 6px -1px rgba(122, 25, 25, 0.1), 0 2px 4px -1px rgba(122, 25, 25, 0.06); }
+        .map-card:hover img { transform: scale(1.02); }
+        .map-card img { transition: transform 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-bgmain text-textdark font-sans leading-relaxed">
+
+    <!-- НАВИГАЦИОННОЕ МЕНЮ (Navbar) -->
+    <nav class="bg-accentred text-bgmain sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="font-bold text-2xl text-accentgold uppercase tracking-wider">
+                Алаш Мұрасы
+            </div>
+            <ul class="flex flex-wrap space-x-4 md:space-x-8 mt-4 md:mt-0 font-medium">
+                <li><a href="index.html" class="hover:text-accentgold transition">Басты бет</a></li>
+                <li><a href="maps.html" class="text-accentgold border-b-2 border-accentgold pb-1 transition">Карталар</a></li>
+                <li><a href="figures.html" class="hover:text-accentgold transition">Тұлғалар</a></li>
+                <li><a href="survey.html" class="hover:text-accentgold transition">Сауалнама</a></li>
+                <li><a href="games.html" class="hover:text-accentgold transition">Ойындар</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <header class="container mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-accentred mb-4">
+            🗺️ ТАРИХИ КАРТАЛАР МЕН ҚҰЖАТТАР
+        </h1>
+        <p class="text-lg md:text-xl font-semibold text-textdark max-w-4xl mx-auto border-b-2 border-accentgold pb-6">
+            ХХ ғасырдың басындағы ұлт-азаттық қозғалыс пен Алаш қайраткерлерінің қызметін айғақтайтын негізгі тарихи деректер
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16 space-y-16">
+
+        <!-- 6-БӨЛІК: ТАРИХИ ДЕРЕКТЕР (Мәтіндік сипаттама) -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-6">ОҚИҒАЛАР МЕН ДЕРЕКТЕР: ТАРИХИ ҚҰЖАТТАР ЖӘНЕ СУРЕТТЕР</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-2">1. Қарқаралы петициясы (1905 жыл, 2 шілде)</h3>
+                    <p class="text-sm">Қазақ халқының атынан патша үкіметіне жолданған алғашқы саяси талаптар жиынтығы. Онда жер мәселесін шешу, дін бостандығы, қазақ тілінде іс жүргізу және сот ісін ұлттық ерекшеліктерге сай бейімдеу туралы мәселелер көтерілді.</p>
+                </div>
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-2">2. «Алаш» партиясының бағдарламасы мен Алашорда үкіметі</h3>
+                    <p class="text-sm">«Қазақ» газетінде жарияланған бұл құжатта мемлекеттік басқару нысаны, автономия, жер, сот, дін, салық, білім беру қамтылды. Екінші Жалпықазақ съезінде Қазақ автономиясы жарияланып, «Алашорда» халық кеңесін (үкіметін) құру туралы тарихи шешім қабылданды.</p>
+                </div>
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-2">3. Орынбордағы Жалпықазақ съездерінің қайраткерлері</h3>
+                    <p class="text-sm">1917 жылы өткен І және ІІ Жалпықазақ съездеріне қатысқан Әлихан Бөкейхан, Ахмет Байтұрсынұлы, Міржақып Дулатұлы және басқа да Алаш қайраткерлерінің біріккен түскен тарихи фотосуреттері сақталған.</p>
+                </div>
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-2">4. Съезд делегаттары мен саяси ұйымшылдық</h3>
+                    <p class="text-sm">Орынбор қаласында өткен съезде бас қосқан ұлт көшбасшылары мен мұрағаттық суреттері. Бұл суреттер ұлт көшбасшыларының бірлігі мен саяси ұйымшылдығын айғақтайды.</p>
+                </div>
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-2">5. «Қазақ» газетінің мұқабалары мен басылымдары</h3>
+                    <p class="text-sm">1913-1918 жылдары Орынбор қаласында жарық көрген ұлттық басылымның түпнұсқа беттері. Онда халықты ағарту, әдебиет, тіл және саяси мақалалар басылып шықты.</p>
+                </div>
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-2">6. Алашорда әскерінің (милициясының) фотолары</h3>
+                    <p class="text-sm">Азамат соғысы кезінде Алаш автономиясын қорғау үшін жасақталған ұлттық әскери бөлімдердің архивтік суреттері.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ГАЛЕРЕЯ КАРТ -->
+        <section>
+            <h2 class="text-2xl font-bold text-accentred mb-8 text-center uppercase tracking-wide">
+                Тарихи Карталар Галереясы
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- Карта 1 -->
+                <div class="map-card bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentgold overflow-hidden">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200">
+                        <!-- Изображение map1.jpg -->
+                        <img src="map1.jpg" alt="1916 жылғы ұлт-азаттық көтеріліс" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Карта+1+жүктелуде...';">
+                    </div>
+                    <h3 class="font-bold text-accentred text-xl mb-2 text-center">1916 жылғы ұлт-азаттық көтеріліс</h3>
+                    <p class="text-sm text-center text-gray-700">Қазақ даласын қамтыған 1916 жылғы жаппай ұлт-азаттық көтеріліс пен ұрыс қимылдарының бағыттары.</p>
+                </div>
+
+                <!-- Карта 2 -->
+                <div class="map-card bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentgold overflow-hidden">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200">
+                        <!-- Изображение map2.jpg -->
+                        <img src="map2.jpg" alt="Қазақстан шетел интервенциясы мен Азамат соғысы жылдарында" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Карта+2+жүктелуде...';">
+                    </div>
+                    <h3 class="font-bold text-accentred text-xl mb-2 text-center">Азамат соғысы жылдарында</h3>
+                    <p class="text-sm text-center text-gray-700">Қазақстан аумағындағы шетел интервенциясы мен Азамат соғысы кезіндегі майдандар (1918-1920 жж).</p>
+                </div>
+
+                <!-- Карта 3 -->
+                <div class="map-card bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentgold overflow-hidden md:col-span-2 lg:col-span-1">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200">
+                        <!-- Изображение map3.jpg -->
+                        <img src="map3.jpg" alt="Қазақ АКСР-і 1920-1929 жылдар аралығында" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Карта+3+жүктелуде...';">
+                    </div>
+                    <h3 class="font-bold text-accentred text-xl mb-2 text-center">Қазақ АКСР-і (1920-1929 жж.)</h3>
+                    <p class="text-sm text-center text-gray-700">1920 жылы құрылған Қазақ Автономиялы Кеңестік Социалистік Республикасының аумағы мен шекаралары.</p>
+                </div>
+
+                <!-- Карта 4 -->
+                <div class="map-card bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentgold overflow-hidden">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200">
+                        <!-- Изображение map4.jpg -->
+                        <img src="map4.jpg" alt="Қазақ Автономиялы Кеңестік Социалистік Республикасы (губерниялар)" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Карта+4+жүктелуде...';">
+                    </div>
+                    <h3 class="font-bold text-accentred text-xl mb-2 text-center">ҚазАКСР әкімшілік бөлінісі</h3>
+                    <p class="text-sm text-center text-gray-700">Қазақ АКСР-інің Орынбор қаласы астана болған кездегі губернияларға бөлінуі.</p>
+                </div>
+
+                <!-- Карта 5 -->
+                <div class="map-card bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentgold overflow-hidden md:col-span-2 lg:col-span-1 lg:col-start-2">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200">
+                        <!-- Изображение map5.jpg -->
+                        <img src="map5.jpg" alt="Қазақстандағы индустрияландыру мен ұжымдастыру" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Карта+5+жүктелуде...';">
+                    </div>
+                    <h3 class="font-bold text-accentred text-xl mb-2 text-center">Индустрияландыру және Ұжымдастыру</h3>
+                    <p class="text-sm text-center text-gray-700">1920-1930 жылдардағы Қазақстандағы индустрияландыру саясаты, кен орындары және ұжымдастыру салдарынан болған халықтың көшу бағыттары.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-accentred text-bgmain text-center py-6 mt-10">
+        <p class="text-sm opacity-80">© 2026 Қазақстан Тарихы Жобасы: Алаш Мұрасы. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сауалнама - Алаш Мұрасы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSV оқуға арналған кітапхана -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgmain: '#f8f5ee',
+                        accentred: '#7a1919',
+                        accentgold: '#d4af37',
+                        textdark: '#2c2520'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .custom-shadow { box-shadow: 0 4px 6px -1px rgba(122, 25, 25, 0.1), 0 2px 4px -1px rgba(122, 25, 25, 0.06); }
+        .progress-bar { transition: width 1s ease-in-out; }
+        /* Кастомный скроллбар для аналитики */
+        #dynamic-stats::-webkit-scrollbar { width: 8px; }
+        #dynamic-stats::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        #dynamic-stats::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+        #dynamic-stats::-webkit-scrollbar-thumb:hover { background: #b8962a; }
+    </style>
+</head>
+<body class="bg-bgmain text-textdark font-sans leading-relaxed">
+
+    <!-- НАВИГАЦИОННОЕ МЕНЮ (Navbar) -->
+    <nav class="bg-accentred text-bgmain sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="font-bold text-2xl text-accentgold uppercase tracking-wider">
+                Алаш Мұрасы
+            </div>
+            <ul class="flex flex-wrap space-x-4 md:space-x-8 mt-4 md:mt-0 font-medium">
+                <li><a href="index.html" class="hover:text-accentgold transition">Басты бет</a></li>
+                <li><a href="maps.html" class="hover:text-accentgold transition">Карталар</a></li>
+                <li><a href="figures.html" class="hover:text-accentgold transition">Тұлғалар</a></li>
+                <li><a href="survey.html" class="text-accentgold border-b-2 border-accentgold pb-1 transition">Сауалнама</a></li>
+                <li><a href="games.html" class="hover:text-accentgold transition">Ойындар</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <header class="container mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-accentred mb-4">
+            📊 ИНТЕРАКТИВТІ САУАЛНАМА ЖӘНЕ ВИДЕО
+        </h1>
+        <p class="text-lg md:text-xl font-semibold text-textdark max-w-4xl mx-auto border-b-2 border-accentgold pb-6">
+            Қоғамның тарихи санасын анықтау: Көше сұхбаты мен AI технологиялары
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16 space-y-16">
+
+        <!-- 9-БӨЛІК: СТАТИСТИКА (МӘТІНДІК) -->
+        <section class="bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentred">
+            <h2 class="text-2xl font-bold text-accentred mb-6 flex items-center">
+                <span class="text-accentgold mr-2">📈</span> Сұхбат нәтижелерінің нақты статистикасы (Көше сұхбаты)
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="space-y-4">
+                    <p class="text-lg font-bold">Респонденттердің жалпы саны: <span class="text-accentred">18 адам</span></p>
+                    <ul class="space-y-2 font-medium">
+                        <li class="flex items-center"><div class="w-4 h-4 bg-green-500 rounded-full mr-3"></div> Толық дұрыс жауап бергендер: 3 адам (16.7%)</li>
+                        <li class="flex items-center"><div class="w-4 h-4 bg-yellow-500 rounded-full mr-3"></div> Жартылай дұрыс жауап бергендер: 6 адам (33.3%)</li>
+                        <li class="flex items-center"><div class="w-4 h-4 bg-red-500 rounded-full mr-3"></div> Қате жауап бергендер: 3 адам (16.7%)</li>
+                        <li class="flex items-center"><div class="w-4 h-4 bg-gray-500 rounded-full mr-3"></div> Мүлдем жауап бере алмағандар: 6 адам (33.3%)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-bgmain p-5 rounded-lg border-l-4 border-accentgold">
+                    <h3 class="font-bold text-accentred text-lg mb-3">🔍 Не себепті тек 3 адам ғана толық дұрыс жауап бере алды? (3 негізгі себеп)</h3>
+                    <ul class="list-decimal list-inside space-y-2 text-sm text-justify">
+                        <li><b>Кенеттен қойылған сұрақ және қобалжу:</b> Көшеде немесе қоғамдық орында кенеттен микрофон ұстатып сұрақ қойған кезде, респонденттер сасып қалып, біліп тұрған ақпаратын немесе нақты есімдерді бірден есіне түсіре алмайды.</li>
+                        <li><b>Тарихи тұлғалар мен деректердің күнделікті өмірде қолданылмауы:</b> Қарапайым халық пен әртүрлі мамандық иелері күнделікті тірлікте тарихи қайраткерлердің санын немесе аты-жөндерін жатқа айтып жүрмейтіндіктен, уақыт өте келе бұл мәліметтер ұмытылып қалады.</li>
+                        <li><b>Жас ерекшеліктері және білім алу деңгейінің әртүрлілігі:</b> Сұхбатқа әртүрлі жастағы адамдар (мектеп оқушылары, студенттер, ересектер) қатысқандықтан, әркімнің тарихты меңгеру деңгейі мен есте сақтау қабілеті әртүрлі болып келеді.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ВИДЕОМАТЕРИАЛДАР (Локальные) -->
+        <section class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentred">
+                <h3 class="font-bold text-accentred text-lg mb-4 text-center">Көше сауалнамасы (20 адам)</h3>
+                <div class="rounded bg-black overflow-hidden aspect-video">
+                    <video controls class="w-full h-full object-cover">
+                        <source src="43946.mp4" type="video/mp4">
+                        Сіздің браузеріңіз видеоны қолдамайды.
+                    </video>
+                </div>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentred">
+                <h3 class="font-bold text-accentred text-lg mb-4 text-center">AI Сұхбат: Тұрар Рысқұловпен</h3>
+                <div class="rounded bg-black overflow-hidden aspect-video">
+                    <video controls class="w-full h-full object-cover">
+                        <source src="43947.mp4" type="video/mp4">
+                        Сіздің браузеріңіз видеоны қолдамайды.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE АНАЛИТИКА ЖӘНЕ GOOGLE ФОРМА -->
+        <section class="grid lg:grid-cols-2 gap-8">
+            
+            <!-- Live Аналитика Бөлімі -->
+            <div class="bg-white p-6 rounded-xl custom-shadow border-t-4 border-accentgold">
+                <h3 class="font-bold text-2xl mb-2 text-accentred">Сауалнаманың нақты нәтижелері</h3>
+                <p class="text-gray-600 mb-6 border-b-2 border-gray-200 pb-4">
+                    Сауалнамадан өткендердің нақты саны: <span id="total-count" class="font-bold text-2xl text-accentgold">Жүктелуде...</span>
+                </p>
+
+                <!-- Осы жерге JS арқылы сұрақтар мен Топ-10 автоматты түрде түседі -->
+                <div id="dynamic-stats" class="space-y-8 h-[600px] overflow-y-auto pr-4">
+                    <p class="text-center text-gray-500 animate-pulse font-bold">Google базасынан мәліметтер оқылуда...</p>
+                </div>
+            </div>
+
+            <!-- Google Таблица iframe -->
+            <div class="bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentgold h-[700px] flex flex-col">
+                <h3 class="font-bold text-2xl mb-4 text-accentred text-center">Жауаптар тізімі (Google Таблица)</h3>
+                <div class="flex-grow overflow-hidden rounded border border-gray-300">
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQu7fn77cVWHiS_uVFUj_hAUQA10QUvFSYZNQbyShVIHjQX5QSWAnswkrHspxLCOEfZvr18Awl2jG1n/pubhtml?widget=true&amp;headers=false" class="w-full h-full border-0"></iframe>
+                </div>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-accentred text-bgmain text-center py-6 mt-10">
+        <p class="text-sm opacity-80">© 2026 Қазақстан Тарихы Жобасы: Алаш Мұрасы. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+    <!-- LIVE АНАЛИТИКА СКРИПТІ -->
+    <script>
+        const sheetCSVUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQu7fn77cVWHiS_uVFUj_hAUQA10QUvFSYZNQbyShVIHjQX5QSWAnswkrHspxLCOEfZvr18Awl2jG1n/pub?output=csv';
+
+        Papa.parse(sheetCSVUrl, {
+            download: true,
+            header: true,
+            complete: function(results) {
+                // Бос қатарларды алып тастаймыз
+                const data = results.data.filter(row => row['Отметка времени'] || Object.values(row)[0]);
+                const totalRespondents = data.length;
+                
+                document.getElementById('total-count').innerText = totalRespondents + ' адам';
+                
+                if (totalRespondents === 0) {
+                    document.getElementById('dynamic-stats').innerHTML = '<p class="text-center font-bold">Әзірге жауаптар жоқ.</p>';
+                    return;
+                }
+
+                const questions = Object.keys(data[0]).filter(q => q !== 'Отметка времени' && q !== '');
+                let htmlContent = '';
+
+                questions.forEach((question, index) => {
+                    // Ашық сұрақ па әлде тест пе екенін тексеру
+                    let answers = data.map(row => row[question]).filter(val => val);
+                    
+                    // Көп жауапты сұрақтарды (үтірмен бөлінген) ажырату
+                    let allOptions = [];
+                    answers.forEach(ans => {
+                        ans.split(', ').forEach(item => allOptions.push(item.trim()));
+                    });
+
+                    // Жауаптардың жиілігін есептеу
+                    let counts = {};
+                    allOptions.forEach(opt => {
+                        let cleanOpt = opt.toLowerCase();
+                        counts[cleanOpt] = (counts[cleanOpt] || 0) + 1;
+                    });
+
+                    // Сұрақтың түрін анықтау: Егер әртүрлі жауаптар өте көп болса, бұл - Ашық сұрақ
+                    const uniqueAnswersCount = Object.keys(counts).length;
+                    const isOpenEnded = uniqueAnswersCount > 7 && totalRespondents > 5;
+
+                    htmlContent += `<div class="mb-8 bg-bgmain p-4 rounded-lg border border-gray-200"><h4 class="font-bold text-lg mb-4 text-accentred">${index + 1}. ${question}</h4>`;
+
+                    if (isOpenEnded) {
+                        // АШЫҚ СҰРАҚ ҮШІН ТОП-10
+                        htmlContent += `<div class="bg-white p-4 rounded shadow-sm border-l-4 border-accentgold"><p class="font-bold text-textdark mb-3">🔥 Топ жиі кездесетін жауаптар:</p><ul class="list-decimal pl-5 space-y-2 text-sm">`;
+                        
+                        let sortedTop = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+                        sortedTop.forEach(item => {
+                            htmlContent += `<li><span class="capitalize font-medium">${item[0]}</span> <span class="text-gray-500 font-bold">(${item[1]} рет)</span></li>`;
+                        });
+                        htmlContent += `</ul></div>`;
+                    } else {
+                        // ТЕСТ СҰРАҚТАРЫ ҮШІН ПАЙЫЗДЫҚ КӨРСЕТКІШТЕР
+                        let sortedStats = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+                        
+                        sortedStats.forEach(item => {
+                            // Пайызды есептеу (көп жауапты сұрақтар үшін жалпы адам санына шағамыз)
+                            let percent = Math.round((item[1] / totalRespondents) * 100);
+                            if (percent > 100) percent = 100;
+
+                            // Түстерді пайызға қарай өзгерту
+                            let barColor = percent > 50 ? 'bg-green-600' : (percent > 20 ? 'bg-yellow-500' : 'bg-red-500');
+
+                            htmlContent += `
+                            <div class="mb-3">
+                                <div class="flex justify-between text-sm font-bold text-textdark mb-1">
+                                    <span class="w-[80%] truncate capitalize" title="${item[0]}">${item[0]}</span>
+                                    <span>${percent}% (${item[1]})</span>
+                                </div>
+                                <div class="w-full bg-gray-300 rounded h-3 overflow-hidden">
+                                    <div class="${barColor} h-3 rounded progress-bar" style="width: ${percent}%"></div>
+                                </div>
+                            </div>`;
+                        });
+                    }
+                    htmlContent += `</div>`;
+                });
+
+                document.getElementById('dynamic-stats').innerHTML = htmlContent;
+            },
+            error: function(error) {
+                document.getElementById('dynamic-stats').innerHTML = '<p class="text-red-500 font-bold text-center">Деректерді жүктеу кезінде қате кетті.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

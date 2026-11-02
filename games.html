@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивті Ойындар - Алаш Мұрасы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgmain: '#f8f5ee',
+                        accentred: '#7a1919',
+                        accentgold: '#d4af37',
+                        textdark: '#2c2520'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .game-section { display: none; }
+        .game-section.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .custom-shadow { box-shadow: 0 4px 6px -1px rgba(122, 25, 25, 0.1), 0 2px 4px -1px rgba(122, 25, 25, 0.06); }
+        .result-box { display: none; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; font-weight: bold; text-align: center; transition: all 0.3s ease; }
+        .result-success { background-color: #dcfce7; color: #166534; border: 1px solid #22c55e; }
+        .result-error { background-color: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+    </style>
+</head>
+<body class="bg-bgmain text-textdark font-sans leading-relaxed">
+
+    <!-- НАВИГАЦИОННОЕ МЕНЮ (Navbar) -->
+    <nav class="bg-accentred text-bgmain sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="font-serif font-bold text-2xl text-accentgold uppercase tracking-wider">
+                Алаш Мұрасы
+            </div>
+            <ul class="flex flex-wrap space-x-4 md:space-x-8 mt-4 md:mt-0 font-medium">
+                <li><a href="index.html" class="hover:text-accentgold transition">Басты бет</a></li>
+                <li><a href="maps.html" class="hover:text-accentgold transition">Карталар</a></li>
+                <li><a href="figures.html" class="hover:text-accentgold transition">Тұлғалар</a></li>
+                <li><a href="survey.html" class="hover:text-accentgold transition">Сауалнама</a></li>
+                <li><a href="games.html" class="text-accentgold border-b-2 border-accentgold pb-1 transition">Ойындар</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <header class="container mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold font-serif text-accentred mb-4">
+            🎮 ИНТЕРАКТИВТІ ОЙЫНДАР МЕН ТАПСЫРМАЛАР
+        </h1>
+        <p class="text-lg md:text-xl font-semibold text-textdark max-w-4xl mx-auto border-b-2 border-accentgold pb-6">
+            Тарихи біліміңізді тексеріп, Алаш зиялыларының мұрасын ойын арқылы танып-біліңіз
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16">
+
+        <!-- ВЫБОР ИГРЫ -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button onclick="showGame('game1')" class="bg-accentred text-white px-5 py-2 rounded-full font-bold hover:bg-opacity-90 transition shadow">1. Алаш ізімен</button>
+            <button onclick="showGame('game2')" class="bg-accentred text-white px-5 py-2 rounded-full font-bold hover:bg-opacity-90 transition shadow">2. Архив құпиясы</button>
+            <button onclick="showGame('game3')" class="bg-accentred text-white px-5 py-2 rounded-full font-bold hover:bg-opacity-90 transition shadow">3. Ақиқат/Жалған</button>
+            <button onclick="showGame('game4')" class="bg-accentred text-white px-5 py-2 rounded-full font-bold hover:bg-opacity-90 transition shadow">4. Тұлға & Еңбек</button>
+            <button onclick="showGame('game5')" class="bg-accentred text-white px-5 py-2 rounded-full font-bold hover:bg-opacity-90 transition shadow">5. Себеп & Салдар</button>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 1-ОЙЫН: «АЛАШ ІЗІМЕН» (10 сұрақ) -->
+        <!-- ============================================== -->
+        <section id="game1" class="game-section active bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentgold max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold font-serif text-accentred mb-2">Ойын 1: «Алаш ізімен» – Интерактивті квест</h2>
+            <p class="text-gray-600 mb-6">Әр тарихи оқиға өткен қаланы дұрыс таңдаңыз.</p>
+
+            <form id="formGame1" class="space-y-6">
+                <!-- Сұрақ 1 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">1. 1905 ж. алғашқы саяси петиция қабылданған қала?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Қарқаралы">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Орынбор">Орынбор</option>
+                        <option value="Қарқаралы">Қарқаралы</option>
+                        <option value="Семей">Семей</option>
+                        <option value="Алматы">Алматы</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 2 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">2. 1913 ж. «Қазақ» газеті басылып шыққан қала?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Орынбор">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Торғай">Торғай</option>
+                        <option value="Жымпиты">Жымпиты</option>
+                        <option value="Орынбор">Орынбор</option>
+                        <option value="Қоқан">Қоқан</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 3 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">3. 1917 ж. Екінші Жалпықазақ съезі өтіп, Алашорда құрылған қала?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Орынбор">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Семей">Семей</option>
+                        <option value="Орынбор">Орынбор</option>
+                        <option value="Санкт-Петербург">Санкт-Петербург</option>
+                        <option value="Мәскеу">Мәскеу</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 4 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">4. Батыс Алашорданың орталығы болған елді мекен?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Жымпиты">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Жымпиты">Жымпиты</option>
+                        <option value="Орал">Орал</option>
+                        <option value="Торғай">Торғай</option>
+                        <option value="Ақтөбе">Ақтөбе</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 5 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">5. Мұстафа Шоқай басқарған Түркістан автономиясының орталығы?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Қоқан">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Ташкент">Ташкент</option>
+                        <option value="Самарқан">Самарқан</option>
+                        <option value="Қоқан">Қоқан</option>
+                        <option value="Бішкек">Бішкек</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 6 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">6. Алаш қаласы атанған, Алашорданың уақытша астанасы?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Семей">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Павлодар">Павлодар</option>
+                        <option value="Семей">Семей</option>
+                        <option value="Өскемен">Өскемен</option>
+                        <option value="Ақмола">Ақмола</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 7 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">7. 1916 жылғы Торғай көтерілісінің негізгі орталығы?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Торғай">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Қостанай">Қостанай</option>
+                        <option value="Торғай">Торғай</option>
+                        <option value="Қызылорда">Қызылорда</option>
+                        <option value="Арал">Арал</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 8 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">8. Жетісудағы ұлт-азаттық көтеріліс орталығы?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Верный / Алматы">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Жаркент">Жаркент</option>
+                        <option value="Верный / Алматы">Верный / Алматы</option>
+                        <option value="Талдықорған">Талдықорған</option>
+                        <option value="Қапал">Қапал</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 9 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">9. I және II Мемлекеттік Дума жұмыс істеген империя астанасы?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Санкт-Петербург">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Мәскеу">Мәскеу</option>
+                        <option value="Қазан">Қазан</option>
+                        <option value="Киев">Киев</option>
+                        <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    </select>
+                </div>
+                <!-- Сұрақ 10 -->
+                <div class="p-4 bg-bgmain rounded-lg border border-gray-200">
+                    <p class="font-bold mb-2">10. Тұрар Рысқұлов Коминтерн өкілі ретінде қызмет атқарған қала?</p>
+                    <select class="w-full p-2 border rounded" data-answer="Мәскеу">
+                        <option value="">Таңдаңыз...</option>
+                        <option value="Ташкент">Ташкент</option>
+                        <option value="Уфа">Уфа</option>
+                        <option value="Мәскеу">Мәскеу</option>
+                        <option value="Омбы">Омбы</option>
+                    </select>
+                </div>
+
+                <button type="button" onclick="checkGame1()" class="w-full bg-accentgold text-white font-bold py-3 rounded hover:bg-opacity-80 transition mt-4">Нәтижені тексеру</button>
+                <div id="resGame1" class="result-box"></div>
+            </form>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 2-ОЙЫН: «АРХИВ ҚҰПИЯСЫ» (10 бос орын) -->
+        <!-- ============================================== -->
+        <section id="game2" class="game-section bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentgold max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold font-serif text-accentred mb-2">Ойын 2: «Архив құпиясы» – Мәтінді қалпына келтіру</h2>
+            <p class="text-gray-600 mb-6">Мәтіндегі 10 бос орынға сәйкес келетін сөздерді таңдаңыз.</p>
+            
+            <div class="bg-bgmain p-6 rounded-lg border border-gray-300 text-lg leading-loose">
+                «Ресей демократиялық, федеративтік 
+                <select id="g2_1" class="border rounded p-1 text-sm bg-white" data-answer="республика">
+                    <option value="">[...]</option><option value="монархия">монархия</option><option value="республика">республика</option><option value="империя">империя</option>
+                </select> 
+                болуы керек. Мемлекеттегі діндерге 
+                <select id="g2_2" class="border rounded p-1 text-sm bg-white" data-answer="теңдік">
+                    <option value="">[...]</option><option value="еркіндік">еркіндік</option><option value="шектеу">шектеу</option><option value="теңдік">теңдік</option>
+                </select> 
+                беріледі. Бастауыш мектептерде оқу 
+                <select id="g2_3" class="border rounded p-1 text-sm bg-white" data-answer="ана тілінде">
+                    <option value="">[...]</option><option value="орыс тілінде">орыс тілінде</option><option value="ана тілінде">ана тілінде</option><option value="араб тілінде">араб тілінде</option>
+                </select> 
+                жүргізілуі тиіс. Қазақ жеріне 
+                <select id="g2_4" class="border rounded p-1 text-sm bg-white" data-answer="қоныс аударушыларды">
+                    <option value="">[...]</option><option value="қоныс аударушыларды">қоныс аударушыларды</option><option value="зауыттарды">зауыттарды</option><option value="әскерді">әскерді</option>
+                </select> 
+                әкелу тоқтатылсын. Сот ісі 
+                <select id="g2_5" class="border rounded p-1 text-sm bg-white" data-answer="қазақ тілінде">
+                    <option value="">[...]</option><option value="қазақ тілінде">қазақ тілінде</option><option value="орыс тілінде">орыс тілінде</option><option value="шариғатпен">шариғатпен</option>
+                </select> 
+                жүргізілсін. Тартып алынған жер 
+                <select id="g2_6" class="border rounded p-1 text-sm bg-white" data-answer="жергілікті халыққа">
+                    <option value="">[...]</option><option value="мемлекетке">мемлекетке</option><option value="жергілікті халыққа">жергілікті халыққа</option><option value="байларға">байларға</option>
+                </select> 
+                қайтарылсын. Салық 
+                <select id="g2_7" class="border rounded p-1 text-sm bg-white" data-answer="табысқа">
+                    <option value="">[...]</option><option value="жерге">жерге</option><option value="табысқа">табысқа</option><option value="малға">малға</option>
+                </select> 
+                қарай әділ алынсын. Жұмысшылар құқығы 
+                <select id="g2_8" class="border rounded p-1 text-sm bg-white" data-answer="заңмен">
+                    <option value="">[...]</option><option value="заңмен">заңмен</option><option value="үкіметпен">үкіметпен</option><option value="күшпен">күшпен</option>
+                </select> 
+                қорғалсын. Елді қорғау үшін ұлттық 
+                <select id="g2_9" class="border rounded p-1 text-sm bg-white" data-answer="милиция">
+                    <option value="">[...]</option><option value="милиция">милиция</option><option value="армия">армия</option><option value="жасақ">жасақ</option>
+                </select> 
+                құрылсын. Баспасөз және сөз 
+                <select id="g2_10" class="border rounded p-1 text-sm bg-white" data-answer="бостандығы">
+                    <option value="">[...]</option><option value="бостандығы">бостандығы</option><option value="құқығы">құқығы</option><option value="цензурасы">цензурасы</option>
+                </select> 
+                толық қамтамасыз етілсін.»
+            </div>
+            
+            <button type="button" onclick="checkGame2()" class="w-full bg-accentgold text-white font-bold py-3 rounded hover:bg-opacity-80 transition mt-6">Мәтінді тексеру</button>
+            <div id="resGame2" class="result-box"></div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 3-ОЙЫН: «АҚИҚАТ ПА, ЖАЛҒАН БА?» (10 тұжырым) -->
+        <!-- ============================================== -->
+        <section id="game3" class="game-section bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentgold max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold font-serif text-accentred mb-2">Ойын 3: «Ақиқат па, Жалған ба?»</h2>
+            <p class="text-gray-600 mb-6">Әр тұжырымның дұрыс немесе қате екенін белгілеңіз.</p>
+
+            <form id="formGame3" class="space-y-4">
+                <script>
+                    const statements = [
+                        {q: "1. Әлихан Бөкейханов I Мемлекеттік Думаның депутаты болды.", a: "Ақиқат"},
+                        {q: "2. «Оян, қазақ!» кітабының авторы Ахмет Байтұрсынов.", a: "Жалған"},
+                        {q: "3. «Алаш» партиясының баспа органы «Қазақ» газеті болды.", a: "Ақиқат"},
+                        {q: "4. Мұхамеджан Тынышбаев Түркістан автономиясының премьер-министрі болды.", a: "Ақиқат"},
+                        {q: "5. Кеңес үкіметі Алашорда мүшелеріне амнистия жариялаған жоқ.", a: "Жалған"},
+                        {q: "6. 1916 жылғы көтеріліс патшаның жерді тартып алу жарлығынан басталды.", a: "Жалған"},
+                        {q: "7. Бақытжан Қаратаев Дума мінберінен қазақ жерін қорғап сөз сөйледі.", a: "Ақиқат"},
+                        {q: "8. Қарқаралы петициясы 1917 жылы жазылды.", a: "Жалған"},
+                        {q: "9. Алашорда үкіметі 1920 жылға дейін өмір сүрді.", a: "Ақиқат"},
+                        {q: "10. Ахмет Байтұрсынов «Тіл-құрал» оқулығының авторы.", a: "Ақиқат"}
+                    ];
+
+                    statements.forEach((item, index) => {
+                        document.write(`
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-bgmain rounded-lg border border-gray-200 gap-4">
+                                <p class="font-bold flex-1">${item.q}</p>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="g3_${index}" value="Ақиқат" data-answer="${item.a}"> Ақиқат</label>
+                                    <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="g3_${index}" value="Жалған" data-answer="${item.a}"> Жалған</label>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+
+                <button type="button" onclick="checkGame3()" class="w-full bg-accentgold text-white font-bold py-3 rounded hover:bg-opacity-80 transition mt-4">Жауаптарды тексеру</button>
+                <div id="resGame3" class="result-box"></div>
+            </form>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 4-ОЙЫН: «ТҰЛҒА ЖӘНЕ ЕҢБЕК» (10 жұп) -->
+        <!-- ============================================== -->
+        <section id="game4" class="game-section bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentgold max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold font-serif text-accentred mb-2">Ойын 4: «Тұлға және Еңбек» (Сәйкестендіру)</h2>
+            <p class="text-gray-600 mb-6">Тұлғаның атына оның атқарған қызметін немесе еңбегін сәйкестендіріңіз.</p>
+
+            <form id="formGame4" class="space-y-4">
+                <script>
+                    const persons = [
+                        {n: "Әлихан Бөкейханов", a: "Алашорда үкіметінің төрағасы"},
+                        {n: "Ахмет Байтұрсынов", a: "«Тіл-құрал», Ұлт ұстазы"},
+                        {n: "Міржақып Дулатов", a: "«Оян, қазақ!» авторы"},
+                        {n: "Мұхамеджан Тынышбаев", a: "Тұңғыш қазақ теміржол-инженері"},
+                        {n: "Тұрар Рысқұлов", a: "Түркістан ОАК төрағасы"},
+                        {n: "Тоқаш Бокин", a: "Жетісудағы көтеріліс басшысы"},
+                        {n: "Кейкі батыр", a: "Торғай көтерілісінің мерген-қолбасшысы"},
+                        {n: "Бақытжан Қаратаев", a: "I Мемлекеттік Дума депутаты, заңгер"},
+                        {n: "Көлбай Тоғысов", a: "«Алаш» бағдарламасын жасауға қатысушы, публицист"},
+                        {n: "Мұхтар Әуезов", a: "Қазақ әдебиетінің классигі, жазушы"}
+                    ];
+                    
+                    const optionsHTML = persons.map(p => `<option value="${p.a}">${p.a}</option>`).sort(() => Math.random() - 0.5).join('');
+
+                    persons.forEach((person, index) => {
+                        document.write(`
+                            <div class="grid md:grid-cols-2 gap-4 items-center p-4 bg-bgmain rounded-lg border border-gray-200">
+                                <p class="font-bold text-accentred">${index + 1}. ${person.n}</p>
+                                <select class="w-full p-2 border rounded" data-answer="${person.a}">
+                                    <option value="">Қызметін таңдаңыз...</option>
+                                    ${optionsHTML}
+                                </select>
+                            </div>
+                        `);
+                    });
+                </script>
+
+                <button type="button" onclick="checkGame4()" class="w-full bg-accentgold text-white font-bold py-3 rounded hover:bg-opacity-80 transition mt-4">Сәйкестікті тексеру</button>
+                <div id="resGame4" class="result-box"></div>
+            </form>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 5-ОЙЫН: «ТАРИХИ ДОМИНО» (10 тізбек) -->
+        <!-- ============================================== -->
+        <section id="game5" class="game-section bg-white p-8 rounded-xl custom-shadow border-t-4 border-accentgold max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold font-serif text-accentred mb-2">Ойын 5: «Тарихи домино» (Себеп пен Салдар)</h2>
+            <p class="text-gray-600 mb-6">Оқиғаның СЕБЕБІНЕ оның дұрыс САЛДАРЫН (нәтижесін) табыңыз.</p>
+
+            <form id="formGame5" class="space-y-4">
+                <script>
+                    const dominos = [
+                        {cause: "Столыпиннің аграрлық реформасы", effect: "Қазақтардың шұрайлы жерінен айырылуы"},
+                        {cause: "1916 ж. тыл жұмысына алу жарлығы", effect: "Жалпыхалықтық ұлт-азаттық көтеріліс"},
+                        {cause: "1917 ж. Ақпан төңкерісі", effect: "«Алаш» партиясын құруға мүмкіндік тууы"},
+                        {cause: "Кеңес билігінің жеңіске жетуі", effect: "Алашорда үкіметінің таратылуы"},
+                        {cause: "«Қазақ» газетінің шығуы", effect: "Ұлт зиялыларының басының бірігуі"},
+                        {cause: "Қарқаралы петициясының жазылуы", effect: "Халқымыздың саяси талаптарының жүйеленуі"},
+                        {cause: "Мемлекеттік Думалардың шақырылуы", effect: "Қазақ депутаттарының парламенттік тәжірибе алуы"},
+                        {cause: "1917 ж. Желтоқсан съезі", effect: "Алаш автономиясының жариялануы"},
+                        {cause: "Азамат соғысының басталуы", effect: "Алашорданың әскери жасақтар құруы"},
+                        {cause: "Кеңестік ҚазАКСР құрылуы", effect: "Алаш зиялыларының мемлекеттік қызметке тартылуы"}
+                    ];
+                    
+                    const effectOptionsHTML = dominos.map(d => `<option value="${d.effect}">${d.effect}</option>`).sort(() => Math.random() - 0.5).join('');
+
+                    dominos.forEach((item, index) => {
+                        document.write(`
+                            <div class="grid lg:grid-cols-2 gap-4 p-4 bg-bgmain rounded-lg border border-gray-200">
+                                <div><span class="text-gray-500 text-sm font-bold uppercase">Себебі:</span><p class="font-bold">${index + 1}. ${item.cause}</p></div>
+                                <div><span class="text-gray-500 text-sm font-bold uppercase">Салдары:</span>
+                                    <select class="w-full p-2 border rounded mt-1" data-answer="${item.effect}">
+                                        <option value="">Салдарын таңдаңыз...</option>
+                                        ${effectOptionsHTML}
+                                    </select>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+
+                <button type="button" onclick="checkGame5()" class="w-full bg-accentgold text-white font-bold py-3 rounded hover:bg-opacity-80 transition mt-4">Доминоны тексеру</button>
+                <div id="resGame5" class="result-box"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-accentred text-bgmain text-center py-6 mt-10">
+        <p class="text-sm opacity-80">© 2026 Қазақстан Тарихы Жобасы: Алаш Мұрасы. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+    <!-- JAVASCRIPT ЛОГИКА ДЛЯ ИГР -->
+    <script>
+        // Функция переключения игр
+        function showGame(gameId) {
+            document.querySelectorAll('.game-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(gameId).classList.add('active');
+        }
+
+        // Общая функция проверки выпадающих списков (<select>)
+        function checkSelects(formSelector, resultId, total) {
+            let score = 0;
+            const selects = document.querySelectorAll(`${formSelector} select`);
+            let allAnswered = true;
+
+            selects.forEach(select => {
+                if(select.value === "") allAnswered = false;
+                if(select.value === select.getAttribute('data-answer')) {
+                    score++;
+                    select.classList.remove('border-red-500', 'bg-red-50');
+                    select.classList.add('border-green-500', 'bg-green-50');
+                } else if(select.value !== "") {
+                    select.classList.remove('border-green-500', 'bg-green-50');
+                    select.classList.add('border-red-500', 'bg-red-50');
+                }
+            });
+
+            showResult(resultId, score, total, allAnswered);
+        }
+
+        // Проверка Игры 1
+        function checkGame1() { checkSelects('#formGame1', 'resGame1', 10); }
+        // Проверка Игры 2
+        function checkGame2() { checkSelects('#game2', 'resGame2', 10); }
+        // Проверка Игры 4
+        function checkGame4() { checkSelects('#formGame4', 'resGame4', 10); }
+        // Проверка Игры 5
+        function checkGame5() { checkSelects('#formGame5', 'resGame5', 10); }
+
+        // Проверка Игры 3 (Радио-кнопки)
+        function checkGame3() {
+            let score = 0;
+            let answeredCount = 0;
+            
+            for(let i=0; i<10; i++) {
+                const radios = document.getElementsByName(`g3_${i}`);
+                let answered = false;
+                radios.forEach(radio => {
+                    if(radio.checked) {
+                        answered = true;
+                        answeredCount++;
+                        if(radio.value === radio.getAttribute('data-answer')) score++;
+                    }
+                });
+            }
+            showResult('resGame3', score, 10, answeredCount === 10);
+        }
+
+        // Функция вывода уведомлений
+        function showResult(elementId, score, total, isComplete) {
+            const resBox = document.getElementById(elementId);
+            resBox.style.display = 'block';
+            
+            if(!isComplete) {
+                resBox.className = 'result-box result-error';
+                resBox.innerText = `Барлық сұрақтарға жауап беріңіз! Әзірге ұпайыңыз: ${score}/${total}`;
+            } else if (score === total) {
+                resBox.className = 'result-box result-success';
+                resBox.innerText = `Құттықтаймыз! Сіздің нәтиже: ${score}/${total} (100% дұрыс!). Керемет білім!`;
+            } else {
+                resBox.className = 'result-box result-error';
+                resBox.innerText = `Ойын аяқталды. Сіздің нәтиже: ${score}/${total}. Қате жауаптар қызылмен белгіленді. Тағы да көріңіз!`;
+            }
+        }
+    </script>
+</body>
+</html>
