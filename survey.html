@@ -92,26 +92,40 @@
         </section>
 
         <!-- ВИДЕОМАТЕРИАЛДАР (Локальные) -->
+        <!-- ВИДЕОМАТЕРИАЛДАР (YouTube Embeds) -->
         <section class="grid md:grid-cols-2 gap-8">
+            
+            <!-- 1-видео: Көше сауалнамасы -->
             <div class="bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentred">
                 <h3 class="font-bold text-accentred text-lg mb-4 text-center">Көше сауалнамасы (20 адам)</h3>
                 <div class="rounded bg-black overflow-hidden aspect-video">
-                    <video controls class="w-full h-full object-cover">
-                        <source src="43946.mp4" type="video/mp4">
-                        Сіздің браузеріңіз видеоны қолдамайды.
-                    </video>
+                    <iframe 
+                        class="w-full h-full border-0" 
+                        src="https://www.youtube.com/embed/4zeSqtqnJ6U?si=_Zc2VK8FQi0lWbZS" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
             
+            <!-- 2-видео: AI Сұхбат -->
             <div class="bg-white p-4 rounded-xl custom-shadow border-t-4 border-accentred">
                 <h3 class="font-bold text-accentred text-lg mb-4 text-center">AI Сұхбат: Тұрар Рысқұловпен</h3>
-                <div class="rounded bg-black overflow-hidden aspect-video">
-                    <video controls class="w-full h-full object-cover">
-                        <source src="43947.mp4" type="video/mp4">
-                        Сіздің браузеріңіз видеоны қолдамайды.
-                    </video>
+                <!-- AI видео Shorts форматында (тік) болғандықтан, aspect-video (16:9) орнына биіктігін реттедік -->
+                <div class="rounded bg-black overflow-hidden aspect-video md:aspect-[9/16] md:max-h-[500px] mx-auto flex justify-center">
+                    <iframe 
+                        class="w-full h-full border-0" 
+                        src="https://www.youtube.com/embed/0EvGS4oX3rk?si=owMX1gI4nm6frG7f" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
+            
         </section>
 
         <!-- LIVE АНАЛИТИКА ЖӘНЕ GOOGLE ФОРМА -->
